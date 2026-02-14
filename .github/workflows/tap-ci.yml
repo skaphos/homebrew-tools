@@ -1,0 +1,49 @@
+name: Tap CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate-formulae:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Validate tap formulae
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          shopt -s nullglob
+          formulae=(Formula/*.rb)
+
+          if [ ${#formulae[@]} -eq 0 ]; then
+            echo "No formulae found in Formula/. Skipping checks."
+            exit 0
+          fi
+
+          brew update --quiet
+          brew --version
+
+          echo "Running brew style..."
+          brew style "${formulae[@]}"
+
+          echo "Running brew audit..."
+          brew audit --strict --online "${formulae[@]}"
+
+          echo "Building formulae from source..."
+          for formula in "${formulae[@]}"; do
+            name="$(basename "$formula" .rb)"
+            echo "Installing $name from $formula"
+            brew install --build-from-source "$formula"
+            brew uninstall --force "$name"
+          done
