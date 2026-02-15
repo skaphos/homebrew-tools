@@ -5,21 +5,21 @@
 class Repokeeper < Formula
   desc "Track and manage many Git repositories from a single config"
   homepage "https://github.com/skaphos/repokeeper"
-  version "0.0.1"
+  version "0.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/skaphos/repokeeper/releases/download/v0.0.1/repokeeper_0.0.1_darwin_amd64.tar.gz"
-      sha256 "71bcd6c11503febaa406426acf57203456133a53778af0267d3a9e4730b103e0"
+      url "https://github.com/skaphos/repokeeper/releases/download/v0.1.0/repokeeper_0.1.0_darwin_amd64.tar.gz"
+      sha256 "245d179d9965d8a93a3bff072fa89aad72d0e368946e3832465bf62f53bafe9d"
 
       def install
         bin.install "repokeeper"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/skaphos/repokeeper/releases/download/v0.0.1/repokeeper_0.0.1_darwin_arm64.tar.gz"
-      sha256 "b4eb49f25a0cfdb09e26fc25da7f3c9ed438d2b1cae17f0ee6b46c4cf24bdfc0"
+      url "https://github.com/skaphos/repokeeper/releases/download/v0.1.0/repokeeper_0.1.0_darwin_arm64.tar.gz"
+      sha256 "5931b1e10f227dee904269f7b0ff72b1e2e17467c3abab97aa36eb30307a53b4"
 
       def install
         bin.install "repokeeper"
@@ -29,15 +29,15 @@ class Repokeeper < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/skaphos/repokeeper/releases/download/v0.0.1/repokeeper_0.0.1_linux_amd64.tar.gz"
-      sha256 "8d3c8c60722e3112f658022756b5c7e2a9cdc48fb6df625ab67612ac0e7f474e"
+      url "https://github.com/skaphos/repokeeper/releases/download/v0.1.0/repokeeper_0.1.0_linux_amd64.tar.gz"
+      sha256 "8e2b0d24aafd9836f4b1cb8cbcf545015685bac34239ebeb022087f0bddab5f4"
       def install
         bin.install "repokeeper"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/skaphos/repokeeper/releases/download/v0.0.1/repokeeper_0.0.1_linux_arm64.tar.gz"
-      sha256 "0b3b114945a2589456b94ad5292081067e2ddd98f8c6ddbf6df06b4372e421cc"
+      url "https://github.com/skaphos/repokeeper/releases/download/v0.1.0/repokeeper_0.1.0_linux_arm64.tar.gz"
+      sha256 "7962ed49afd8db454df63aa4c218a15429679d316b219a38e906d8c3695d81f2"
       def install
         bin.install "repokeeper"
       end
