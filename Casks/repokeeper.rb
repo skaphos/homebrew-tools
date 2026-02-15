@@ -3,7 +3,7 @@ cask "repokeeper" do
   name "repokeeper"
   desc "Track and manage many Git repositories from a single config"
   homepage "https://github.com/skaphos/repokeeper"
-  version "0.0.1"
+  version "0.1.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "repokeeper" do
   on_macos do
     on_intel do
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_darwin_amd64.tar.gz"
-      sha256 "6bb1422b5b17ba02d3d14931cb937501e35014877a64c011c9235413a06bcdd4"
+      sha256 "fac2fc23c11cb93f40fbf6f5c18c79ac048cff02e93aadf0411778fe97e330eb"
     end
     on_arm do
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_darwin_arm64.tar.gz"
-      sha256 "03d55f4fb046f5125633a5379ac0633eb1e9ce2b9176f7902b2eca6b21bdc814"
+      sha256 "632a8b8d8c05f6bad9166b9f855422fa424c8ebee08ea4a99be60a3b675f4219"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_linux_amd64.tar.gz"
-      sha256 "28f536afe4cd30df6ead37f2bd4f8e1330de2522289f4de02e6be3dba1c3795a"
+      sha256 "d5fa26cb093e0ec95b2c2d77d9a5c8260e6117352c03b622b673e8270250f6af"
     end
     on_arm do
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_linux_arm64.tar.gz"
-      sha256 "8270f782bbab77a7dc3f648bb1d9f24196cf6358428ddae710f56e07c17c7cd5"
+      sha256 "bd25bc574e69e07a0aee6ee6953a4a2e4e09f74e10a30f45ff97b6f50483a8c6"
     end
   end
 
