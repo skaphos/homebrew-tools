@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  validate-formulae:
+  validate-tap:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,32 +18,47 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Validate tap formulae
+      - name: Validate tap contents
         shell: bash
         run: |
           set -euo pipefail
 
           shopt -s nullglob
           formulae=(Formula/*.rb)
+          casks=(Casks/*.rb)
 
-          if [ ${#formulae[@]} -eq 0 ]; then
-            echo "No formulae found in Formula/. Skipping checks."
+          if [ ${#formulae[@]} -eq 0 ] && [ ${#casks[@]} -eq 0 ]; then
+            echo "No formulae or casks found. Skipping checks."
             exit 0
           fi
 
           brew update --quiet
           brew --version
 
-          echo "Running brew style..."
-          brew style "${formulae[@]}"
+          if [ ${#formulae[@]} -gt 0 ]; then
+            echo "Running brew style for formulae..."
+            brew style "${formulae[@]}"
 
-          echo "Running brew audit..."
-          brew audit --strict --online "${formulae[@]}"
+            echo "Running brew audit for formulae..."
+            brew audit --strict --online "${formulae[@]}"
 
-          echo "Building formulae from source..."
-          for formula in "${formulae[@]}"; do
-            name="$(basename "$formula" .rb)"
-            echo "Installing $name from $formula"
-            brew install --build-from-source "$formula"
-            brew uninstall --force "$name"
-          done
+            echo "Building formulae from source..."
+            for formula in "${formulae[@]}"; do
+              name="$(basename "$formula" .rb)"
+              echo "Installing $name from $formula"
+              brew install --build-from-source "$formula"
+              brew uninstall --force "$name"
+            done
+          else
+            echo "No formulae found in Formula/. Skipping formula checks."
+          fi
+
+          if [ ${#casks[@]} -gt 0 ]; then
+            echo "Running brew style for casks..."
+            brew style "${casks[@]}"
+
+            echo "Running brew audit for casks..."
+            brew audit --cask --strict --online "${casks[@]}"
+          else
+            echo "No casks found in Casks/. Skipping cask checks."
+          fi
