@@ -1,0 +1,13 @@
+apiVersion: repokeeper/v1
+kind: RepoMetadata
+repo_id: github.com/skaphos/homebrew-tools
+name: Homebrew Tools
+labels:
+    kind: distribution
+    org: skaphos
+    role: homebrew-tap
+entrypoints:
+    readme: README.md
+paths:
+    low_value:
+        - .github/
