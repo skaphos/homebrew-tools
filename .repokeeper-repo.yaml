@@ -9,5 +9,11 @@ labels:
 entrypoints:
     readme: README.md
 paths:
+    authoritative:
+        - Formula/
+        - Casks/
     low_value:
         - .github/
+related_repos:
+    - repo_id: github.com/skaphos/repokeeper
+      relationship: distributes
