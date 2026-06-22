@@ -7,26 +7,26 @@ cask "repokeeper" do
     end
   end
 
-  version "1.2.0"
+  version "1.3.0"
 
   on_macos do
     on_intel do
-      sha256 "4434e53826470377f7e43f2dda6a25dc5de0b5f7db82b5571597603ade31d897"
+      sha256 "6df37ccd8ab9932e0c0af7ff81bbaccde63694d8e60b6ea540e9a58533d157b4"
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "ebbc3a32187b82d91e7c470715925fc2653e6cc20a6dcb306336130dab3ff103"
+      sha256 "813ea2be017f3a1c4cbe4c17617ea9f9d0f2268f95b697c2f9b070c711da18dc"
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "7ffecbf12d2e8f66fb6c7b5c59cf65bd5cbd481ad7e79109b521d909c854ab52"
+      sha256 "f03c863e9ba962f07bc1c055e823d9a712d75551b016ff55e882ef49017b2dbf"
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "009a5af5f51358b4bd209992bf08127307b49423858138e9b0ab56fddb99a261"
+      sha256 "6076a557dad98f27b3115687e10da4eec7ad3a4949f584b645f55ab9627698f4"
       url "https://github.com/skaphos/repokeeper/releases/download/v#{version}/repokeeper_#{version}_linux_arm64.tar.gz"
     end
   end
