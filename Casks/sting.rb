@@ -7,27 +7,26 @@ cask "sting" do
     end
   end
 
-  version "1.1.0"
+  version "1.2.0"
 
   on_macos do
-    on_intel do
-      sha256 "179220567500a2d133e994ad8b509b74279c38d0906ccce7195a5ddeb037ea89"
-      url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_darwin_amd64.tar.gz"
-    end
     on_arm do
-      sha256 "c2f92190ce203948b4f602563e82b3055d7d662ebd4111fe63a4bf0628e6fc6d"
+      sha256 "c53ca146018a07ae1e5abd13810ae171f402e76521069659151236ee80595c8d"
       url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_darwin_arm64.tar.gz"
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "17550b8b86c8c4c44be6128d480f93e82c9ef02ab6a485fc9a8fc7765b484216"
-      url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_linux_amd64.tar.gz"
+      sha256 "bc35bf135f1dcacad86280c27b70ec83a5a74023707f1aa779238ea22c56a42b"
+      url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_darwin_amd64.tar.gz"
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "073785c433189b2a307eb056abcc4c02a0997263e7c5b214f0dbf49751f4919b"
+      sha256 "84ce38a7a52dfcd2d0fc9fb2560a2811d21b70ae8a5b4848de8b6957deca2393"
       url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_linux_arm64.tar.gz"
+    end
+    on_intel do
+      sha256 "1035fc401cb7484074975d61ea654c4d5f5733b797f9d8bf1e2e766f279b4907"
+      url "https://github.com/skaphos/sting/releases/download/v#{version}/sting_#{version}_linux_amd64.tar.gz"
     end
   end
 
@@ -42,5 +41,4 @@ cask "sting" do
   binary "sting"
 
   # No zap stanza required
-
 end
