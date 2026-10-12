@@ -27,7 +27,8 @@ skaphos/sting#161), and each cask loses it on that tool's next release. Once tho
 ship, the casks carry no Gatekeeper workaround, and each tool's release workflow fails if the
 signing credentials are missing rather than publishing an unsigned binary.
 
-`Tap CI` runs `brew style` and `brew audit --strict --online` on every push and pull request.
+`Tap CI` runs `brew style` and `brew audit --strict --online` on pushes to `main`, on pull
+requests, and on manual dispatch.
 Because releases push straight to `main`, a failure there reports a problem after publication
 rather than blocking it. Fix the cause in the tool's GoReleaser config. Until both tools
 release without the `postflight` hook, `Tap CI` fails on `Cask/InstallSteps` and
