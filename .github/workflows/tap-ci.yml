@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       # Homebrew/actions publishes no release tags, so pin to a main commit.
+      # Dependabot only bumps SHA pins that track a version tag, so it will not
+      # refresh this one: update it by hand from Homebrew/actions main.
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # main
         with:
